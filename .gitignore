@@ -22,3 +22,6 @@ node_modules
 
 # Ignore VScode folder generated from an extension
 .vscode
+
+#Ignore .parcel-cache folder from accidental uploads
+.parcel-cache
