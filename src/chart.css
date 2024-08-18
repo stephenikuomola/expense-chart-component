@@ -182,7 +182,7 @@ img, picture {
 }
 
 /* Remove the default style of buttons */
-buttons {
+button {
   background: none;
   appearance: none;
   border: none; 
@@ -205,7 +205,7 @@ textarea:not([rows]) {
 }
 
 /* Remove all animations, transitions, and scrolling for people that do not want them */
-@media(prefer-reduced-motion:reduce) {
+@media(prefers-reduced-motion:reduce) {
   html:focus-within {
     scroll-behavior: auto;
   }
