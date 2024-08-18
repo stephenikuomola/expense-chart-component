@@ -5,7 +5,8 @@
   "source": "index.html",
   "type": "module",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "lint": "npx eslint src/**/*.js"
   },
   "keywords": [
     "HTML",
@@ -23,7 +24,9 @@
     "@parcel/packager-raw-url": "^2.12.0",
     "@parcel/transformer-webmanifest": "^2.12.0",
     "eslint": "^9.9.0",
+    "eslint-config-prettier": "^9.1.0",
     "globals": "^15.9.0",
-    "parcel": "^2.12.0"
+    "parcel": "^2.12.0",
+    "prettier": "3.3.3"
   }
 }
