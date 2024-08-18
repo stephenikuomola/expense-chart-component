@@ -102,4 +102,91 @@
   --space-9: clamp(1.5rem, 1.197rem + 1.514vw, 2.56rem);
   --space-10: clamp(3.25rem, 2.999rem + 1.257vw, 4.13rem);
 }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*, :before, :after {
+  box-sizing: border-box;
+}
+
+ul[role="list"], ol[role="list"] {
+  list-style: none;
+}
+
+html {
+  font-family: var(--ff-DM-Sans-sans-serif);
+  overflow: hidden;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--cream);
+  text-rendering: optimizeSpeed;
+  line-height: var(--line-height-normal);
+  width: 100%;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, button, input, label {
+  line-height: var(--line-height-none);
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+img, picture {
+  display: var(--block);
+  max-width: 100%;
+  height: auto;
+}
+
+buttons {
+  appearance: none;
+  background: none;
+  border: none;
+}
+
+input, button, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+:target {
+  scroll-margin-block: 5ex;
+}
+
+@media (prefer-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *, :before, :after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
 /*# sourceMappingURL=index.85753699.css.map */
