@@ -6,6 +6,6 @@ export default [
   {languageOptions: { globals: globals.browser }},
   pluginJs.configs.recommended,
   {
-    ignores: ['node_modules', 'dist', 'parcel-cache']
+    ignores: ['node_modules/**', 'dist/**', '.parcel-cache/**']
   }
 ];
