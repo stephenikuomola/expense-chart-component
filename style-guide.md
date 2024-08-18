@@ -153,6 +153,4 @@ The chart component should be responsive across all three major devices
 --space-8: clamp(1.5rem, 1.357rem + 0.714vw, 2rem); 
 --space-9: clamp(1.5rem, 1.197rem + 1.514vw, 2.56rem);
 --space-10: clamp(3.25rem, 2.999rem + 1.257vw, 4.13rem); 
- 
-
 ```
