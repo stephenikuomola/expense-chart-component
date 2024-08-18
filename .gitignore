@@ -16,3 +16,9 @@
 
 # Avoid git from tracking prettier file.
 .prettierignore
+
+# Ignore node_modules folder to avoid accidental uploads
+node_modules
+
+# Ignore VScode folder generated from an extension
+.vscode
