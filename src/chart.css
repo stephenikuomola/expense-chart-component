@@ -204,7 +204,7 @@ textarea:not([rows]) {
   scroll-margin-block: 5ex; 
 }
 
-/* Remove all animations and scrolling for people that do not want them */
+/* Remove all animations, transitions, and scrolling for people that do not want them */
 @media(prefer-reduced-motion:reduce) {
   html:focus-within {
     scroll-behavior: auto;
