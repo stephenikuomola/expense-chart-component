@@ -7,7 +7,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["HTML", "CSS", "JavScript", "Parcel", "ESLint", "JSDoc", "JSON"],
+  "keywords": [
+    "HTML",
+    "CSS",
+    "JavScript",
+    "Parcel",
+    "ESLint",
+    "JSDoc",
+    "JSON"
+  ],
   "author": "Stephen Ikuomola",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
 }
