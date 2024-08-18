@@ -4,7 +4,7 @@
   --cyan: hsl(186, 34%, 60%);
   --dark-brown: hsl(25, 47%, 15%);
   --medium-brown: hsl(28, 10%, 53%);
-  --cream: hsl(27, 66%,92%);
+  --cream: hsl(27, 66%, 92%);
   --very-pale-orange: hsl(33, 100%, 98%); 
 
   /* Gap */
@@ -72,6 +72,7 @@
   --radius-16: 38px;
   --radius-17: 40px;
 
+  /* Typography */
   --ff-DM-Sans-sans-serif: var(--ff-DM-Sans), sans-serif;
   --ff-DM-Sans: 'DM Sans';
   --fw-100: 100;
@@ -114,3 +115,107 @@
   --space-9: clamp(1.5rem, 1.197rem + 1.514vw, 2.56rem);
   --space-10: clamp(3.25rem, 2.999rem + 1.257vw, 4.13rem);
 }
+
+/* CSS Resets -> https://piccalil.li/blog/a-more-modern-css-reset/ */
+* {
+  margin: 0; 
+  padding: 0; 
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Remove all list styles with ol, ul elements with a list role which suggest default styling will be removed. */
+ul[role="list"], 
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set the root defaults */
+html {
+  font-family: var(--ff-DM-Sans-sans-serif); 
+  overflow: hidden; 
+  /* Read up on text-adjust before implementing */
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh; 
+  width: 100%; 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--cream);
+  text-rendering:optimizeSpeed;
+  line-height: var(--line-height-normal);
+}
+
+/* Set shorter line-height for interactive elements  */
+h1, h2, h3, h4, button, input, label {
+  line-height: var(--line-height-none);
+}
+
+/* We need to ensure that any overflow of text is have the words broken */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* Balance the text wrapping on headings */
+h1, h2, h3, h4 {
+  text-wrap:balance; 
+}
+
+/* Any anchor element that does not have a class attribute should get the default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img, picture {
+  max-width: 100%; 
+  display: var(--block); 
+  height: auto;
+}
+
+/* Remove the default style of buttons */
+buttons {
+  background: none;
+  appearance: none;
+  border: none; 
+}
+
+/* Inherit the fonts for these elements */
+input, button, textarea, select {
+  font-family: inherit; 
+  font-size: inherit;
+}
+
+/* Text areas without rows should not be tiny */
+textarea:not([rows]) {
+  min-height: 10em; 
+}
+
+/* Anything that has been anchored to should have an extra scroll margin */
+:target {
+  scroll-margin-block: 5ex; 
+}
+
+/* Remove all animations and scrolling for people that do not want them */
+@media(prefer-reduced-motion:reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
