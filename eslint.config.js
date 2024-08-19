@@ -1,15 +1,14 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
-import comments from "@eslint-community/eslint-plugin-eslint-comments/configs";
-import packageJson from "eslint-plugin-package-json/configs/recommended";
-import jsoncParser from "jsonc-eslint-parser";
-import perfectionist from "eslint-plugin-perfectionist";
+import pluginJs from '@eslint/js';
+import comments from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import jsdoc from 'eslint-plugin-jsdoc';
-import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
-
+import packageJson from 'eslint-plugin-package-json/configs/recommended';
+import perfectionist from 'eslint-plugin-perfectionist';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import globals from 'globals';
+import jsoncParser from 'jsonc-eslint-parser';
 
 export default [
-  {languageOptions: { globals: globals.browser }},
+  { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   comments.recommended,
   packageJson,
@@ -19,26 +18,20 @@ export default [
     ignores: ['node_modules/**', 'dist/**', '.parcel-cache/**']
   },
   {
+    files: ['*.json', '*.json5'],
+    languageOptions: {
+      parser: jsoncParser
+    }
+  },
+  {
+    files: ['**/*.js'],
+    linterOptions: {
+      reportUnusedDisableDirectives: 'error'
+    },
+
     plugins: {
       perfectionist,
       jsdoc
-    }, 
-    rules: {
-      'jsdoc/require-description': 'warn',
-      'perfectionist/sort-imports': [
-        'error',
-        {
-          type: 'natural',
-          order: 'asc',
-        },
-      ],
-    },
-  },
-  {
-    files: ['**/*.js', "*.json", "*.json5"],
-    languageOptions: {
-      reportUnusedDisableDirectives: 'error',
-      parser: jsoncParser,
     },
     rules: {
       'constructor-super': 2,
@@ -57,7 +50,6 @@ export default [
       'jsdoc/no-multi-asterisks': 1, // Recommended
       'jsdoc/no-undefined-types': 1, // Recommended
       'jsdoc/require-asterisk-prefix': 1,
-      'jsdoc/require-description': 'error',
       'jsdoc/require-jsdoc': 2, // Recommended
       'jsdoc/require-param': 2, // Recommended
       'jsdoc/require-param-description': 1, // Recommended
@@ -88,7 +80,15 @@ export default [
       'no-magic-numbers': 'error',
       'no-self-compare': 'error',
       quotes: ['error', 'single', { allowTemplateLiterals: true }],
-      semi: 'error'
+      semi: 'error',
+      'jsdoc/require-description': 'warn',
+      'perfectionist/sort-imports': [
+        'error',
+        {
+          type: 'natural',
+          order: 'asc'
+        }
+      ]
     }
   }
 ];

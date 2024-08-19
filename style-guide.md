@@ -13,8 +13,8 @@ The chart component should be responsive across all three major devices
 --cyan: hsl(186, 34%, 60%);
 --dark-brown: hsl(25, 47%, 15%);
 --medium-brown: hsl(28, 10%, 53%);
---cream: hsl(27, 66%,92%);
---very-pale-orange: hsl(33, 100%, 98%); 
+--cream: hsl(27, 66%, 92%);
+--very-pale-orange: hsl(33, 100%, 98%);
 ```
 
 ## Gap
@@ -76,7 +76,7 @@ The chart component should be responsive across all three major devices
 --radius-2: 4px;
 --radius-3: 6px;
 --radius-4: 8px;
---radius-5: 10px; 
+--radius-5: 10px;
 --radius-6: 12px;
 --radius-7: 16px;
 --radius-8: 20px;
@@ -94,9 +94,12 @@ The chart component should be responsive across all three major devices
 ## Typography
 
 ```html
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+  rel="stylesheet"
+/>
 ```
 
 ```css
@@ -110,7 +113,7 @@ The chart component should be responsive across all three major devices
 --fw-600: 600;
 --fw-700: 700;
 --fw-800: 800;
---font-style: normal; 
+--font-style: normal;
 --line-height-none: 1;
 --line-height-tight: 1.25;
 --line-height-snug: 1.375;
@@ -125,32 +128,46 @@ The chart component should be responsive across all three major devices
 --letter-spacing-widest: 0.1em;
 
 /* Font sizes */
---font-size-0: clamp(0.74rem, 0.684rem + 0.282vw, 0.938rem); 
+--font-size-0: clamp(0.74rem, 0.684rem + 0.282vw, 0.938rem);
 --font-size-1: clamp(0.938rem, 0.884rem + 0.268vw, 1.125rem);
---font-size-3: clamp(1.5rem, 1.357rem + 0.714vw, 2rem); 
+--font-size-3: clamp(1.5rem, 1.357rem + 0.714vw, 2rem);
 --font-size-4: clamp(1.875rem, 1.554rem + 1.607vw, 3rem);
 ```
 
 ## Favicon Links
 
 ```html
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
-<link rel="manifest" href="/assets/favicons/site.webmanifest">
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="/assets/favicons/apple-touch-icon.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="/assets/favicons/favicon-32x32.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="/assets/favicons/favicon-16x16.png"
+/>
+<link rel="manifest" href="/assets/favicons/site.webmanifest" />
 ```
 
 ## Spacing
 
 ```css
---space-1: clamp(0.25rem, 0.179rem + 0.357vw, 0.5rem); 
+--space-1: clamp(0.25rem, 0.179rem + 0.357vw, 0.5rem);
 --space-2: clamp(0.5rem, 0.446rem + 0.271vw, 0.69rem);
 --space-3: clamp(0.75rem, 0.644rem + 0.529vw, 1.12rem);
---space-4: clamp(1.25rem, 1.124rem + 0.629vw, 1.69rem); 
---space-5: clamp(1.25rem, 1.036rem + 1.071vw, 2rem); 
---space-6: clamp(1.25rem, 0.893rem + 1.786vw, 2.5rem); 
---space-7: clamp(1.38rem, 1.329rem + 0.257vw, 1.56rem); 
---space-8: clamp(1.5rem, 1.357rem + 0.714vw, 2rem); 
+--space-4: clamp(1.25rem, 1.124rem + 0.629vw, 1.69rem);
+--space-5: clamp(1.25rem, 1.036rem + 1.071vw, 2rem);
+--space-6: clamp(1.25rem, 0.893rem + 1.786vw, 2.5rem);
+--space-7: clamp(1.38rem, 1.329rem + 0.257vw, 1.56rem);
+--space-8: clamp(1.5rem, 1.357rem + 0.714vw, 2rem);
 --space-9: clamp(1.5rem, 1.197rem + 1.514vw, 2.56rem);
---space-10: clamp(3.25rem, 2.999rem + 1.257vw, 4.13rem); 
+--space-10: clamp(3.25rem, 2.999rem + 1.257vw, 4.13rem);
 ```

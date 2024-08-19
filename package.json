@@ -2,12 +2,6 @@
   "name": "expenses-chart-component-main",
   "version": "1.0.0",
   "description": "![Design preview for the Expenses chart component coding challenge](./design/desktop-preview.jpg)",
-  "source": "index.html",
-  "type": "module",
-  "scripts": {
-    "start": "parcel index.html",
-    "lint": "npx eslint src/**/*.js"
-  },
   "keywords": [
     "HTML",
     "CSS",
@@ -17,8 +11,24 @@
     "JSDoc",
     "JSON"
   ],
-  "author": "Stephen Ikuomola",
   "license": "ISC",
+  "author": "Stephen Ikuomola",
+  "type": "module",
+  "source": "index.html",
+  "scripts": {
+    "lint": "npx eslint src/*.js",
+    "lint:eslint": " npx eslint --fix .",
+    "lint:prettier": "prettier --write .",
+    "start": "parcel index.html"
+  },
+  "browserslist": "> 0.3%, last 2 versions, Firefox ESR, not dead",
+  "dependencies": {
+    "@eslint-community/eslint-plugin-eslint-comments": "^4.4.0",
+    "eslint-plugin-jsdoc": "^50.2.2",
+    "eslint-plugin-package-json": "^0.15.2",
+    "eslint-plugin-perfectionist": "^3.2.0",
+    "eslint-plugin-prettier": "^5.2.1"
+  },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@parcel/packager-raw-url": "^2.12.0",
@@ -29,12 +39,5 @@
     "jsonc-eslint-parser": "^2.4.0",
     "parcel": "^2.12.0",
     "prettier": "3.3.3"
-  },
-  "dependencies": {
-    "@eslint-community/eslint-plugin-eslint-comments": "^4.4.0",
-    "eslint-plugin-jsdoc": "^50.2.2",
-    "eslint-plugin-package-json": "^0.15.2",
-    "eslint-plugin-perfectionist": "^3.2.0",
-    "eslint-plugin-prettier": "^5.2.1"
   }
 }
