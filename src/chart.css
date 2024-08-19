@@ -138,7 +138,10 @@ ol[role="list"] {
 html {
   font-family: var(--ff-DM-Sans-sans-serif);
   overflow: hidden;
-  /* Read up on text-adjust before implementing */
+  -ms-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust:none;
 }
 
 html:focus-within {
