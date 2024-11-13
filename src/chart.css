@@ -98,22 +98,34 @@
   --letter-spacing-widest: 0.1em;
 
   /* Font sizes */
-  --font-size-0: clamp(0.74rem, 0.684rem + 0.282vw, 0.938rem);
-  --font-size-1: clamp(0.938rem, 0.884rem + 0.268vw, 1.125rem);
-  --font-size-3: clamp(1.5rem, 1.357rem + 0.714vw, 2rem);
-  --font-size-4: clamp(1.875rem, 1.554rem + 1.607vw, 3rem);
+  --font-size-1: clamp(0.64rem, 0.501rem + 0.693vw, 1.125rem); 
+  --font-size-2: clamp(0.74rem, 0.684rem + 0.282vw, 0.938rem);
+  --font-size-3: clamp(0.938rem, 0.884rem + 0.268vw, 1.125rem);
+  --font-size-4: clamp(1.5rem, 1.357rem + 0.714vw, 2rem);
+  --font-size-5: clamp(1.875rem, 1.554rem + 1.607vw, 3rem);
 
   /* Spacing */
   --space-1: clamp(0.25rem, 0.179rem + 0.357vw, 0.5rem);
   --space-2: clamp(0.5rem, 0.446rem + 0.271vw, 0.69rem);
   --space-3: clamp(0.75rem, 0.644rem + 0.529vw, 1.12rem);
-  --space-4: clamp(1.25rem, 1.124rem + 0.629vw, 1.69rem);
-  --space-5: clamp(1.25rem, 1.036rem + 1.071vw, 2rem);
-  --space-6: clamp(1.25rem, 0.893rem + 1.786vw, 2.5rem);
-  --space-7: clamp(1.38rem, 1.329rem + 0.257vw, 1.56rem);
-  --space-8: clamp(1.5rem, 1.357rem + 0.714vw, 2rem);
-  --space-9: clamp(1.5rem, 1.197rem + 1.514vw, 2.56rem);
-  --space-10: clamp(3.25rem, 2.999rem + 1.257vw, 4.13rem);
+  --space-4: clamp(1rem, 0.857rem + 0.714vw, 1.5rem)
+  --space-5: clamp(1.25rem, 1.124rem + 0.629vw, 1.69rem);
+  --space-6: clamp(1.25rem, 1.036rem + 1.071vw, 2rem);
+  --space-7: clamp(1.25rem, 0.893rem + 1.786vw, 2.5rem);
+  --space-8: clamp(1.38rem, 1.329rem + 0.257vw, 1.56rem);
+  --space-9: clamp(1.5rem, 1.357rem + 0.714vw, 2rem);
+  --space-10: clamp(1.5rem, 1.197rem + 1.514vw, 2.56rem);
+  --space-11: clamp(3.25rem, 2.999rem + 1.257vw, 4.13rem);
+
+
+  /* Screen Readers */
+  --sr-only-width: 1px;
+  --sr-only-height: 1px;
+  --sr-only-padding: 0px;
+  --sr-only-margin: -1px;
+  --sr-only-border-width: 0;
+  --sr-only-left: -1000px;
+  --sr-only-top: auto;
 }
 
 /* CSS Resets -> https://piccalil.li/blog/a-more-modern-css-reset/ */
@@ -156,6 +168,9 @@ body {
   background-color: var(--cream);
   text-rendering: optimizeSpeed;
   line-height: var(--line-height-normal);
+  display: var(--flex); 
+  align-items: center; 
+  justify-content: center;
 }
 
 /* Set shorter line-height for interactive elements  */
@@ -242,4 +257,27 @@ textarea:not([rows]) {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* The class will be applied to text that will only be accessible to screen readers */
+.sr-only {
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+  border-width: var(--sr-only-border-width);
+  width: var(--sr-only-width);
+  height: var(--sr-only-height);
+  left: var(--sr-only-left);
+  top: var(--sr-only-top);
+  margin: var(--sr-only-margin);
+  padding: var(--sr-only-padding);
+}
+
+/* Styling the expense chart component header depending on if we get a request */
+.expense-chart-component {
+  width: clamp(18.29rem, 13.873rem + 22.086vw, 33.75rem);
+  display: var(--flex);
+  flex-direction: column;
+  gap: var(--space-11);
+  background-color: red; 
 }
