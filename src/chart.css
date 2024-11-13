@@ -328,6 +328,11 @@ textarea:not([rows]) {
   padding-block-end: var(--space-10);
 }
 
+/* In the case that we get a failed request or there is an issue with the response */
+.hide.success {
+  display: var(--hidden);
+}
+
 .expense-chart {
   width: 100%
 }
@@ -352,6 +357,7 @@ textarea:not([rows]) {
   grid-template-columns: repeat(auto-fit, minmax(1.1rem, 1fr));
   column-gap: clamp(0.64rem, 0.501rem + 0.693vw, 1.125rem);
   align-items: end; 
+  height: 178px;
 }
 
 .expense-chart tr {
@@ -359,8 +365,9 @@ textarea:not([rows]) {
   background-color: var(--soft-red);
   position: relative;
   border-radius: clamp(0.188rem, 0.152rem + 0.179vw, 0.313rem);
-  padding-block-start: 0.3125rem;
   position: relative;
+
+  transition: padding 3s ease-in;
 }
 
 :is(.expense-chart th, .expense-chart td) {
@@ -377,8 +384,6 @@ textarea:not([rows]) {
   line-height: var(--line-height-normal);
   color: var(--medium-brown);
 }
-
-
 
 .expense-chart td {
   /* position: absolute; */
@@ -415,30 +420,62 @@ textarea:not([rows]) {
   border-top: 2px solid var(--cream);
   padding-block-start: clamp(1.5rem, 1.357rem + 0.714vw, 2rem);
   display: var(--flex);
-  align-items:center;
+  align-items:end;
   justify-content: space-between;
+}
+
+.expense-chart__month-expenses span{
+  display: var(--block);
+  font-weight: var(--fw-700);
+  color: var(--dark-brown);
 }
 
 :is(.current-month, .previous-month) {
   font-size: var(--font-size-3);
   font-style: normal;
   line-height: var(--line-height-normal);
-}
-
-.current-month {
   font-weight: var(--fw-400);
   color: var(--medium-brown);
 }
 
 .current-month > span {
-  display: var(--block);
-  font-weight: var(--fw-700);
   font-size: var(--font-size-6);
-  color: var(--dark-brown);
 }
 
 .previous-month {
-  color: var(--dark-brown);
-  font-weight: var(--fw-700);
   text-align: right;
+}
+
+.mon.day {
+  padding-block-start: 3.125rem;
+}
+
+.tues.day {
+  padding-block-start: 6.25rem;
+}
+
+.wednes.day {
+  padding-block-start: 9.375rem; 
+}
+
+.thurs.day {
+  padding-block-start: 5.5625rem; 
+}
+
+.fri.day {
+  padding-block-start: 4.1875rem;
+}
+
+.satur.day {
+  padding-block-start: 7.75rem; 
+}
+
+.sun.day {
+  padding-block-start: 4.5625rem;
+}
+
+
+/* In this event that we get back a valid response then it means the request is successful */
+.hide.failure {
+  display: var(--hidden);
 }

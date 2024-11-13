@@ -271,6 +271,10 @@ textarea:not([rows]) {
   padding-block-end: var(--space-10);
 }
 
+.hide.success {
+  display: var(--hidden);
+}
+
 .expense-chart {
   width: 100%;
 }
@@ -295,13 +299,14 @@ textarea:not([rows]) {
   grid-template-columns: repeat(auto-fit, minmax(1.1rem, 1fr));
   align-items: end;
   column-gap: clamp(.64rem, .501rem + .693vw, 1.125rem);
+  height: 178px;
 }
 
 .expense-chart tr {
   cursor: pointer;
   background-color: var(--soft-red);
   border-radius: clamp(.188rem, .152rem + .179vw, .313rem);
-  padding-block-start: .3125rem;
+  transition: padding 3s ease-in;
   position: relative;
 }
 
@@ -354,31 +359,61 @@ textarea:not([rows]) {
   border-top: 2px solid var(--cream);
   display: var(--flex);
   justify-content: space-between;
-  align-items: center;
+  align-items: end;
   padding-block-start: clamp(1.5rem, 1.357rem + .714vw, 2rem);
+}
+
+.expense-chart__month-expenses span {
+  display: var(--block);
+  font-weight: var(--fw-700);
+  color: var(--dark-brown);
 }
 
 :is(.current-month, .previous-month) {
   font-size: var(--font-size-3);
   font-style: normal;
   line-height: var(--line-height-normal);
-}
-
-.current-month {
   font-weight: var(--fw-400);
   color: var(--medium-brown);
 }
 
 .current-month > span {
-  display: var(--block);
-  font-weight: var(--fw-700);
   font-size: var(--font-size-6);
-  color: var(--dark-brown);
 }
 
 .previous-month {
-  color: var(--dark-brown);
-  font-weight: var(--fw-700);
   text-align: right;
+}
+
+.mon.day {
+  padding-block-start: 3.125rem;
+}
+
+.tues.day {
+  padding-block-start: 6.25rem;
+}
+
+.wednes.day {
+  padding-block-start: 9.375rem;
+}
+
+.thurs.day {
+  padding-block-start: 5.5625rem;
+}
+
+.fri.day {
+  padding-block-start: 4.1875rem;
+}
+
+.satur.day {
+  padding-block-start: 7.75rem;
+}
+
+.sun.day {
+  padding-block-start: 4.5625rem;
+}
+
+.hide.failure {
+  display: var(--hidden);
 }
 /*# sourceMappingURL=index.85753699.css.map */
