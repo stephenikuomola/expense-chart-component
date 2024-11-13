@@ -5,6 +5,7 @@
   --medium-brown: #93867b;
   --cream: #f8e9dd;
   --very-pale-orange: #fffaf5;
+  --white: #fff;
   --gap-0: 0px;
   --gap-1: 1px;
   --gap-1_25: .125rem;
@@ -87,21 +88,26 @@
   --letter-spacing-wide: .025em;
   --letter-spacing-wider: .05em;
   --letter-spacing-widest: .1em;
+  --font-size-0: clamp(.25rem, 0rem + 1.25vw, 1.125rem);
   --font-size-1: clamp(.64rem, .501rem + .693vw, 1.125rem);
   --font-size-2: clamp(.74rem, .684rem + .282vw, .938rem);
   --font-size-3: clamp(.938rem, .884rem + .268vw, 1.125rem);
-  --font-size-4: clamp(1.5rem, 1.357rem + .714vw, 2rem);
-  --font-size-5: clamp(1.875rem, 1.554rem + 1.607vw, 3rem);
+  --font-size-4: clamp(1.28rem, 1.074rem + 1.029vw, 2rem);
+  --font-size-5: clamp(1.5rem, 1.357rem + .714vw, 2rem);
+  --font-size-6: clamp(1.875rem, 1.554rem + 1.607vw, 3rem);
+  --font-size-7: clamp(.208rem, 0rem + 1.042vw, .938rem);
   --space-1: clamp(.25rem, .179rem + .357vw, .5rem);
   --space-2: clamp(.5rem, .446rem + .271vw, .69rem);
   --space-3: clamp(.75rem, .644rem + .529vw, 1.12rem);
-  --space-4: clamp(1rem, .857rem + .714vw, 1.5rem) --space-5: clamp(1.25rem, 1.124rem + .629vw, 1.69rem);
+  --space-4: clamp(1rem, .857rem + .714vw, 1.5rem);
+  --space-5: clamp(1.25rem, 1.124rem + .629vw, 1.69rem);
   --space-6: clamp(1.25rem, 1.036rem + 1.071vw, 2rem);
   --space-7: clamp(1.25rem, .893rem + 1.786vw, 2.5rem);
   --space-8: clamp(1.38rem, 1.329rem + .257vw, 1.56rem);
   --space-9: clamp(1.5rem, 1.357rem + .714vw, 2rem);
   --space-10: clamp(1.5rem, 1.197rem + 1.514vw, 2.56rem);
   --space-11: clamp(3.25rem, 2.999rem + 1.257vw, 4.13rem);
+  --space-12: clamp(.111rem, 0rem + .555vw, .5rem);
   --sr-only-width: 1px;
   --sr-only-height: 1px;
   --sr-only-padding: 0px;
@@ -218,9 +224,161 @@ textarea:not([rows]) {
 
 .expense-chart-component {
   display: var(--flex);
-  gap: var(--space-11);
-  background-color: red;
+  gap: var(--space-4);
   flex-direction: column;
   width: clamp(18.29rem, 13.873rem + 22.086vw, 33.75rem);
+}
+
+.expense-chart-component__header {
+  background-color: var(--soft-red);
+  border-radius: var(--radius-8);
+  padding-inline: var(--space-6);
+  display: var(--flex);
+  justify-content: space-between;
+  align-items: center;
+  padding-block-start: var(--space-5);
+  padding-block-end: var(--space-8);
+}
+
+.expense-chart-component__header:has( > .expense-chart-component__balance.failure) {
+  justify-content: flex-end;
+}
+
+.expense-chart-component__balance {
+  color: var(--white);
+  font-weight: var(--fw-400);
+  font-style: normal;
+  line-height: var(--line-height-normal);
+  font-size: var(--font-size-3);
+}
+
+.expense-chart-component__balance.failure {
+  display: var(--hidden);
+}
+
+.expense-chart-component__balance span {
+  display: var(--block);
+  font-style: normal;
+  font-weight: var(--fw-700);
+  font-size: var(--font-size-5);
+}
+
+.expense-chart-component__info {
+  background-color: var(--white);
+  border-radius: var(--radius-8);
+  padding-inline: var(--space-7);
+  padding-block-start: var(--space-9);
+  padding-block-end: var(--space-10);
+}
+
+.expense-chart {
+  width: 100%;
+}
+
+.expense-chart caption {
+  font-size: var(--font-size-4);
+  font-weight: var(--fw-700);
+  font-style: normal;
+  line-height: var(--line-height-normal);
+  color: var(--dark-brown);
+  caption-side: top;
+  text-align: left;
+  margin-block-end: var(--space-11);
+}
+
+.expense-chart thead {
+  display: var(--hidden);
+}
+
+.expense-chart tbody {
+  display: var(--grid);
+  grid-template-columns: repeat(auto-fit, minmax(1.1rem, 1fr));
+  align-items: end;
+  column-gap: clamp(.64rem, .501rem + .693vw, 1.125rem);
+}
+
+.expense-chart tr {
+  cursor: pointer;
+  background-color: var(--soft-red);
+  border-radius: clamp(.188rem, .152rem + .179vw, .313rem);
+  padding-block-start: .3125rem;
+  position: relative;
+}
+
+:is(.expense-chart th, .expense-chart td) {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.expense-chart th {
+  font-size: var(--font-size-7);
+  font-weight: var(--fw-400);
+  font-style: normal;
+  line-height: var(--line-height-normal);
+  color: var(--medium-brown);
+  bottom: -1.5rem;
+}
+
+.expense-chart td {
+  color: var(--white);
+  background-color: var(--dark-brown);
+  font-size: var(--font-size-0);
+  font-style: normal;
+  font-weight: var(--fw-700);
+  line-height: var(--line-height-normal);
+  padding: var(--space-12);
+  border-radius: clamp(.069rem, .347vw, .313rem);
+  top: -2.06rem;
+}
+
+@media only screen and (width >= 64em) {
+  .expense-chart td {
+    top: -3.06rem;
+  }
+}
+
+@media (any-hover: hover) {
+  .expense-chart td {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+  }
+
+  .expense-chart tr:hover td {
+    opacity: 1;
+  }
+}
+
+.expense-chart__month-expenses {
+  margin-top: var(--space-10);
+  border-top: 2px solid var(--cream);
+  display: var(--flex);
+  justify-content: space-between;
+  align-items: center;
+  padding-block-start: clamp(1.5rem, 1.357rem + .714vw, 2rem);
+}
+
+:is(.current-month, .previous-month) {
+  font-size: var(--font-size-3);
+  font-style: normal;
+  line-height: var(--line-height-normal);
+}
+
+.current-month {
+  font-weight: var(--fw-400);
+  color: var(--medium-brown);
+}
+
+.current-month > span {
+  display: var(--block);
+  font-weight: var(--fw-700);
+  font-size: var(--font-size-6);
+  color: var(--dark-brown);
+}
+
+.previous-month {
+  color: var(--dark-brown);
+  font-weight: var(--fw-700);
+  text-align: right;
 }
 /*# sourceMappingURL=index.85753699.css.map */

@@ -32,8 +32,81 @@
     <!-- Since charts can be gotten from tables like in excel we can use table elements to build a bar chart  -->
     <h1 class="sr-only">An expense chart component</h1>
     <section class="expense-chart-component">
-      <div class="expense-chart-component__header"></div>
-      <div class="expense-chart-component__info"></div>
+      <div class="expense-chart-component__header">
+        <p class="expense-chart-component__balance">
+          My balance <span>$921.48</span>
+        </p>
+        <img src="/logo.46f01af4.svg" class="expense-chart-component__logo" alt="chart logo">
+      </div>
+      <div class="expense-chart-component__info">
+        <div class="success">
+          <table class="expense-chart">
+            <caption>Spending-Last 7 days</caption>
+            <thead>
+              <tr>
+                <th scope="col">Days of the week</th>
+                <th scope="col">Amount Spent</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="mon day">
+                <th scope="row">
+                  <span class="sr-only">Monday</span>
+                  <span aria-hidden="true"></span>
+                </th>
+                <td></td>
+              </tr>
+              <tr class="tues day">
+                <th scope="row">
+                  <span class="sr-only">Tuesday</span>
+                  <span aria-hidden="true"></span>
+                </th>
+                <td></td>
+              </tr>
+              <tr class="wednes day">
+                <th scope="row">
+                  <span class="sr-only">Wednesday</span>
+                  <span aria-hidden="true"></span>
+                </th>
+                <td></td>
+              </tr>
+              <tr class="thurs day">
+                <th scope="row">
+                  <span class="sr-only">Thursday</span>
+                  <span aria-hidden="true"></span>
+                </th>
+                <td></td>
+              </tr>
+              <tr class="fri day">
+                <th scope="row">
+                  <span class="sr-only">Friday</span>
+                  <span aria-hidden="true"></span>
+                </th>
+                <td></td>
+              </tr>
+              <tr class="satur day">
+                <th scope="row">
+                  <span class="sr-only">Saturday</span>
+                  <span aria-hidden="true"></span>
+                </th>
+                <td></td>
+              </tr>
+              <tr class="sun day">
+                <th scope="row">
+                  <span class="sr-only">Sunday</span>
+                  <span aria-hidden="true"></span>
+                </th>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="expense-chart__month-expenses">
+            <p class="current-month">Total this month <span>$478.33</span></p>
+            <p class="previous-month"><span>+2.4%</span>from last month</p>
+          </div>
+        </div>
+        <div class="failure"></div>
+      </div>
     </section>
   </body>
 </html>
