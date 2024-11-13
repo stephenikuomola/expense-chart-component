@@ -87,20 +87,28 @@
   --letter-spacing-wide: .025em;
   --letter-spacing-wider: .05em;
   --letter-spacing-widest: .1em;
-  --font-size-0: clamp(.74rem, .684rem + .282vw, .938rem);
-  --font-size-1: clamp(.938rem, .884rem + .268vw, 1.125rem);
-  --font-size-3: clamp(1.5rem, 1.357rem + .714vw, 2rem);
-  --font-size-4: clamp(1.875rem, 1.554rem + 1.607vw, 3rem);
+  --font-size-1: clamp(.64rem, .501rem + .693vw, 1.125rem);
+  --font-size-2: clamp(.74rem, .684rem + .282vw, .938rem);
+  --font-size-3: clamp(.938rem, .884rem + .268vw, 1.125rem);
+  --font-size-4: clamp(1.5rem, 1.357rem + .714vw, 2rem);
+  --font-size-5: clamp(1.875rem, 1.554rem + 1.607vw, 3rem);
   --space-1: clamp(.25rem, .179rem + .357vw, .5rem);
   --space-2: clamp(.5rem, .446rem + .271vw, .69rem);
   --space-3: clamp(.75rem, .644rem + .529vw, 1.12rem);
-  --space-4: clamp(1.25rem, 1.124rem + .629vw, 1.69rem);
-  --space-5: clamp(1.25rem, 1.036rem + 1.071vw, 2rem);
-  --space-6: clamp(1.25rem, .893rem + 1.786vw, 2.5rem);
-  --space-7: clamp(1.38rem, 1.329rem + .257vw, 1.56rem);
-  --space-8: clamp(1.5rem, 1.357rem + .714vw, 2rem);
-  --space-9: clamp(1.5rem, 1.197rem + 1.514vw, 2.56rem);
-  --space-10: clamp(3.25rem, 2.999rem + 1.257vw, 4.13rem);
+  --space-4: clamp(1rem, .857rem + .714vw, 1.5rem) --space-5: clamp(1.25rem, 1.124rem + .629vw, 1.69rem);
+  --space-6: clamp(1.25rem, 1.036rem + 1.071vw, 2rem);
+  --space-7: clamp(1.25rem, .893rem + 1.786vw, 2.5rem);
+  --space-8: clamp(1.38rem, 1.329rem + .257vw, 1.56rem);
+  --space-9: clamp(1.5rem, 1.357rem + .714vw, 2rem);
+  --space-10: clamp(1.5rem, 1.197rem + 1.514vw, 2.56rem);
+  --space-11: clamp(3.25rem, 2.999rem + 1.257vw, 4.13rem);
+  --sr-only-width: 1px;
+  --sr-only-height: 1px;
+  --sr-only-padding: 0px;
+  --sr-only-margin: -1px;
+  --sr-only-border-width: 0;
+  --sr-only-left: -1000px;
+  --sr-only-top: auto;
 }
 
 * {
@@ -133,6 +141,9 @@ body {
   background-color: var(--cream);
   text-rendering: optimizeSpeed;
   line-height: var(--line-height-normal);
+  display: var(--flex);
+  justify-content: center;
+  align-items: center;
   width: 100%;
   min-height: 100vh;
 }
@@ -190,5 +201,26 @@ textarea:not([rows]) {
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
   }
+}
+
+.sr-only {
+  white-space: nowrap;
+  border-width: var(--sr-only-border-width);
+  width: var(--sr-only-width);
+  height: var(--sr-only-height);
+  left: var(--sr-only-left);
+  top: var(--sr-only-top);
+  margin: var(--sr-only-margin);
+  padding: var(--sr-only-padding);
+  position: absolute;
+  overflow: hidden;
+}
+
+.expense-chart-component {
+  display: var(--flex);
+  gap: var(--space-11);
+  background-color: red;
+  flex-direction: column;
+  width: clamp(18.29rem, 13.873rem + 22.086vw, 33.75rem);
 }
 /*# sourceMappingURL=index.85753699.css.map */
