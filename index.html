@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -50,12 +50,14 @@
     <h1 class="sr-only">An expense chart component</h1>
     <section class="expense-chart-component">
       <div class="expense-chart-component__header">
-        <p class="expense-chart-component__balance">
+        <p class="failure expense-chart-component__balance">
           My balance <span>$921.48</span>
         </p>
         <img src="./assets/logo.svg" class="expense-chart-component__logo" alt="chart logo">
       </div>
       <div class="expense-chart-component__info">
+
+        <!-- When we make a successful request -->
         <div class="hide success">
           <table class="expense-chart">
             <caption>Spending-Last 7 days</caption>
@@ -66,54 +68,54 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="mon day">
+              <tr class="mon">
                 <th scope="row">
                   <span class="sr-only">Monday</span>
                   <span aria-hidden="true"></span>
                 </th>
-                <td></td>
+                <td class="hide"></td>
               </tr>
-              <tr class="tues day">
+              <tr class="tues">
                 <th scope="row">
                   <span class="sr-only">Tuesday</span>
                   <span aria-hidden="true"></span>
                 </th>
-                <td></td>
+                <td class="hide"></td>
               </tr>
-              <tr class="wednes day">
+              <tr class="wednes">
                 <th scope="row">
                   <span class="sr-only">Wednesday</span>
                   <span aria-hidden="true"></span>
                 </th>
-                <td></td>
+                <td class="hide"></td>
               </tr>
-              <tr class="thurs day">
+              <tr class="thurs">
                 <th scope="row">
                   <span class="sr-only">Thursday</span>
                   <span aria-hidden="true"></span>
                 </th>
-                <td></td>
+                <td class="hide"></td>
               </tr>
-              <tr class="fri day">
+              <tr class="fri">
                 <th scope="row">
                   <span class="sr-only">Friday</span>
                   <span aria-hidden="true"></span>
                 </th>
-                <td></td>
+                <td class="hide"></td>
               </tr>
-              <tr class="satur day">
+              <tr class="satur">
                 <th scope="row">
                   <span class="sr-only">Saturday</span>
                   <span aria-hidden="true"></span>
                 </th>
-                <td></td>
+                <td class="hide"></td>
               </tr>
-              <tr class="sun day">
+              <tr class="sun">
                 <th scope="row">
                   <span class="sr-only">Sunday</span>
                   <span aria-hidden="true"></span>
                 </th>
-                <td></td>
+                <td class="hide"></td>
               </tr>
             </tbody>
           </table>
@@ -122,10 +124,20 @@
             <p class="previous-month"><span>+2.4%</span>from last month</p>
           </div>
         </div>
+
+        <!-- When we make a request and we do not obtain the required response -->
         <div class="failure">
           <p class="failure__message"><strong>Oops!</strong>You are lost</p>
           <p class="failure__response-status"></p>
-          <img src="./assets/erroricon.png" alt="">
+          <picture>
+            <source srcset="./assets/erroricon.webp" type="image/webp">
+            <source srcset="./assets/erroricon.png" type="image/png">
+            <img alt="" aria-hidden="true" src="./assets/erroricon.png" width="2100" height="2100">
+          </picture>
+          <button class="btn-refresh">
+            <img alt="" aria-hidden="true" src="./assets/reload.svg">
+            <p>Reload</p>
+          </button>
         </div>
       </div>
     </section>

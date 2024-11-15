@@ -142,14 +142,14 @@
       this[globalName] = mainExports;
     }
   }
-})({"gDFPF":[function(require,module,exports,__globalThis) {
+})({"1B8C6":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
 var HMR_USE_SSE = false;
-module.bundle.HMR_BUNDLE_ID = "b7354f008e50d3f1";
+module.bundle.HMR_BUNDLE_ID = "3396d41ed730720a";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, HMR_USE_SSE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -584,106 +584,9 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"dF3Ha":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _dataJson = require("../data.json");
-var _dataJsonDefault = parcelHelpers.interopDefault(_dataJson);
-const btnReload = /**@type {HTMLButtonElement} */ document.querySelector('button[class="btn-refresh"]');
-const failure = /**@type {HTMLDivElement} */ document.querySelector('div[class~="failure"]');
-const success = /**@type {HTMLDivElement} */ document.querySelector('div[class~="success"]');
-const balance = /**@type {HTMLParagraphElement}*/ document.querySelector('.expense-chart-component__balance');
-const amountPerDay = /**@type {NodeListOf<HTMLTableElement>} */ document.querySelectorAll('tr td');
-const daysOfWeek = /**@type {NodeListOf<HTMLTableElement>}*/ document.querySelectorAll('tr span[aria-hidden="true"]');
-const tableRows = /**@type {NodeListOf<HTMLTableElement>} */ document.querySelectorAll('tbody tr');
-const delay = /**@type{number} */ 1000;
-const sunday = 0;
-const monday = 1;
-const tuesday = 2;
-const wednesday = 3;
-const thursday = 4;
-const friday = 5;
-const saturday = 6;
-/**
- * This function will increase the height of each bar chart
- */ function animateBarChart() {
-    tableRows.forEach(function(tableRow, index) {
-        tableRow.classList.add('day');
-        amountPerDay[index].classList.remove('hide');
-    });
-}
-/**
- * This function will render the days and amounts information on the UI
- */ function renderDaysAndAmounts() {
-    try {
-        if (!Array.isArray((0, _dataJsonDefault.default))) throw new Error();
-        const dataValues = (0, _dataJsonDefault.default);
-        dataValues.forEach(function(dataValue, index) {
-            console.log(dataValue, index);
-            amountPerDay[index].textContent = `$${dataValue.amount}`;
-            daysOfWeek[index].textContent = dataValue.day;
-        });
-        failure?.classList.add('hide');
-        success?.classList.remove('hide');
-        balance?.classList.remove('failure');
-        setTimeout(animateBarChart, delay);
-        // We need to know what the current date us nd compare with the days of the week from the chart, then we apply a different color for the corresponding individual bar chart.
-        const currentDate = new Date();
-        const currentDay = currentDate.getDay();
-        // Using a switch case we want to evaluate the expression above and match the value of that expression to a series of case clauses.
-        switch(currentDay){
-            case sunday:
-                break;
-            case monday:
-                break;
-            case tuesday:
-                break;
-            case wednesday:
-                break;
-            case thursday:
-                break;
-            case friday:
-                tableRows[4].style.backgroundColor = 'red';
-                break;
-            case saturday:
-                break;
-        }
-    } catch (error) {}
-}
-renderDaysAndAmounts();
-
-},{"../data.json":"cn6Iz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cn6Iz":[function(require,module,exports,__globalThis) {
+},{}],"cn6Iz":[function(require,module,exports,__globalThis) {
 module.exports = JSON.parse("[{\"day\":\"mon\",\"amount\":17.45},{\"day\":\"tue\",\"amount\":34.91},{\"day\":\"wed\",\"amount\":52.36},{\"day\":\"thu\",\"amount\":31.07},{\"day\":\"fri\",\"amount\":23.39},{\"day\":\"sat\",\"amount\":43.28},{\"day\":\"sun\",\"amount\":25.48}]");
 
-},{}],"gkKU3":[function(require,module,exports,__globalThis) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, '__esModule', {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
+},{}]},["1B8C6","cn6Iz"], "cn6Iz", "parcelRequire94c2")
 
-},{}]},["gDFPF","dF3Ha"], "dF3Ha", "parcelRequire94c2")
-
-//# sourceMappingURL=index.8e50d3f1.js.map
+//# sourceMappingURL=data.d730720a.js.map
