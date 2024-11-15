@@ -604,6 +604,11 @@ const thursday = 4;
 const friday = 5;
 const saturday = 6;
 /**
+ * A function that set the background-color of the table rows for the days of the week.
+ * @param {number} index - The index of the table rows
+ * @returns {void}
+ */ function setBackgroundColor(index) {}
+/**
  * This function will increase the height of each bar chart
  */ function animateBarChart() {
     tableRows.forEach(function(tableRow, index) {
@@ -642,7 +647,7 @@ const saturday = 6;
             case thursday:
                 break;
             case friday:
-                tableRows[4].style.backgroundColor = 'red';
+                setBackgroundColor(1);
                 break;
             case saturday:
                 break;
