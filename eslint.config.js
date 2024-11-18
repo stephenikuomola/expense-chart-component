@@ -15,7 +15,7 @@ export default [
   eslintPluginPrettierRecommended,
   jsdoc.configs['flat/recommended'],
   {
-    ignores: ['node_modules/**', 'dist/**', '.parcel-cache/**']
+    ignores: ['node_modules/**', '**/dist', '.parcel-cache/**']
   },
   {
     files: ['*.json', '*.json5'],
