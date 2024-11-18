@@ -43,8 +43,22 @@ const SEVENTH_NODE_INDEX = SATURDAY;
  * @returns {void}
  */
 function setBackgroundColor(index) {
-  tableRows[index].style.setProperty('--cyan', 'hsl(186, 34%, 60%);');
-  tableRows[index].style.backgroundColor = 'var(--cyan)';
+  tableRows[index].addEventListener('mouseenter', function (evtObj) {
+    if (evtObj.target instanceof HTMLTableRowElement) {
+      evtObj.target?.style.setProperty(
+        '--cyan-hover',
+        'hsla(186, 49%, 80%, 1)'
+      );
+      evtObj.target.style.backgroundColor = 'var(--cyan-hover)';
+    }
+  });
+
+  tableRows[index].addEventListener('mouseleave', function (evtObj) {
+    if (evtObj.target instanceof HTMLTableRowElement) {
+      evtObj.target?.style.setProperty('--cyan', 'hsl(186, 34%, 60%)');
+      evtObj.target.style.backgroundColor = 'var(--cyan)';
+    }
+  });
 }
 
 /**
