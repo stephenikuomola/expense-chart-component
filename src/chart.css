@@ -370,7 +370,9 @@ textarea:not([rows]) {
   background-color: var(--soft-red);
   position: relative;
   border-radius: clamp(0.188rem, 0.152rem + 0.179vw, 0.313rem);
-  transition: padding 3s ease-in, background-color 1s ease-in;
+  transition:
+    padding 3s ease-in,
+    background-color 1s ease-in;
 }
 
 :is(.expense-chart th, .expense-chart td) {
@@ -418,7 +420,6 @@ textarea:not([rows]) {
 
   .expense-chart tr:is(:hover) {
     background-color: var(--soft-red-hovered);
-    
   }
 
   .expense-chart tr:is(:hover) td {
