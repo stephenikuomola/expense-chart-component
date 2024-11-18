@@ -100,7 +100,7 @@
 
   /* Font sizes */
   --font-size-0: clamp(0.25rem, 0rem + 1.25vw, 1.125rem);
-  --font-size-1: clamp(0.64rem, 0.501rem + 0.693vw, 1.125rem); 
+  --font-size-1: clamp(0.64rem, 0.501rem + 0.693vw, 1.125rem);
   --font-size-2: clamp(0.74rem, 0.684rem + 0.282vw, 0.938rem);
   --font-size-3: clamp(0.938rem, 0.884rem + 0.268vw, 1.125rem);
   --font-size-4: clamp(1.28rem, 1.074rem + 1.029vw, 2rem);
@@ -123,7 +123,6 @@
   --space-10: clamp(1.5rem, 1.197rem + 1.514vw, 2.56rem);
   --space-11: clamp(3.25rem, 2.999rem + 1.257vw, 4.13rem);
   --space-12: clamp(0.111rem, 0rem + 0.555vw, 0.5rem);
-
 
   /* Screen Readers */
   --sr-only-width: 1px;
@@ -160,7 +159,7 @@ html {
   -ms-text-size-adjust: none;
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
-  text-size-adjust:none;
+  text-size-adjust: none;
 }
 
 html:focus-within {
@@ -175,8 +174,8 @@ body {
   background-color: var(--cream);
   text-rendering: optimizeSpeed;
   line-height: var(--line-height-normal);
-  display: var(--flex); 
-  align-items: center; 
+  display: var(--flex);
+  align-items: center;
   justify-content: center;
 }
 
@@ -293,20 +292,22 @@ textarea:not([rows]) {
   border-radius: var(--radius-8);
   padding-inline: var(--space-6);
   display: var(--flex);
-  align-items: center; 
+  align-items: center;
   justify-content: space-between;
   padding-block-start: var(--space-5);
   padding-block-end: var(--space-8);
 }
 
-.expense-chart-component__header:has(> .expense-chart-component__balance.failure){
-  justify-content: flex-end
+.expense-chart-component__header:has(
+    > .expense-chart-component__balance.failure
+  ) {
+  justify-content: flex-end;
 }
 
 .expense-chart-component__balance {
   color: var(--white);
   font-weight: var(--fw-400);
-  font-style: normal; 
+  font-style: normal;
   line-height: var(--line-height-normal);
   font-size: var(--font-size-3);
 }
@@ -317,7 +318,7 @@ textarea:not([rows]) {
 
 .expense-chart-component__balance span {
   display: var(--block);
-  font-style: normal; 
+  font-style: normal;
   font-weight: var(--fw-700);
   font-size: var(--font-size-5);
 }
@@ -336,16 +337,16 @@ textarea:not([rows]) {
 }
 
 .expense-chart {
-  width: 100%
+  width: 100%;
 }
 
 .expense-chart caption {
   font-size: var(--font-size-4);
   font-weight: var(--fw-700);
   font-style: normal;
-  line-height: var(--line-height-normal); 
+  line-height: var(--line-height-normal);
   color: var(--dark-brown);
-  caption-side: top; 
+  caption-side: top;
   text-align: left;
   margin-block-end: var(--space-11);
 }
@@ -358,7 +359,7 @@ textarea:not([rows]) {
   display: var(--grid);
   grid-template-columns: repeat(auto-fit, minmax(1.1rem, 1fr));
   column-gap: clamp(0.64rem, 0.501rem + 0.693vw, 1.125rem);
-  align-items: end; 
+  align-items: end;
   height: 178px;
 }
 
@@ -371,13 +372,13 @@ textarea:not([rows]) {
 }
 
 :is(.expense-chart th, .expense-chart td) {
-  position: absolute; 
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .expense-chart th {
-  bottom: -1.50rem; 
+  bottom: -1.5rem;
   font-size: var(--font-size-7);
   font-weight: var(--fw-400);
   font-style: normal;
@@ -398,7 +399,7 @@ textarea:not([rows]) {
 }
 
 .expense-chart td[class="hide"] {
-  display:var(--hidden);
+  display: var(--hidden);
 }
 
 @media only screen and (min-width: 64em) {
@@ -407,14 +408,14 @@ textarea:not([rows]) {
   }
 }
 
-@media (any-hover:hover) {
+@media (any-hover: hover) {
   .expense-chart td {
     opacity: 0;
     transition: opacity 1s ease-in;
   }
 
   .expense-chart tr:is(:hover) td {
-    opacity: 1; 
+    opacity: 1;
   }
 }
 
@@ -423,11 +424,11 @@ textarea:not([rows]) {
   border-top: 2px solid var(--cream);
   padding-block-start: clamp(1.5rem, 1.357rem + 0.714vw, 2rem);
   display: var(--flex);
-  align-items:end;
+  align-items: end;
   justify-content: space-between;
 }
 
-.expense-chart__month-expenses span{
+.expense-chart__month-expenses span {
   display: var(--block);
   font-weight: var(--fw-700);
   color: var(--dark-brown);
@@ -458,11 +459,11 @@ textarea:not([rows]) {
 }
 
 .wednes.day {
-  padding-block-start: 9.375rem; 
+  padding-block-start: 9.375rem;
 }
 
 .thurs.day {
-  padding-block-start: 5.5625rem; 
+  padding-block-start: 5.5625rem;
 }
 
 .fri.day {
@@ -470,30 +471,27 @@ textarea:not([rows]) {
 }
 
 .satur.day {
-  padding-block-start: 7.75rem; 
+  padding-block-start: 7.75rem;
 }
 
 .sun.day {
   padding-block-start: 4.5625rem;
 }
 
-
 /* In this event that we get back a valid response then it means the request is successful */
 .hide.failure {
   display: var(--hidden);
 }
 
-
 picture img {
-  width: 15.625rem; 
+  width: 15.625rem;
   height: 15.625rem;
-  margin-inline: auto; 
+  margin-inline: auto;
 }
 
-
-.failure__message, .failure__response-status {
+.failure__message {
   text-align: center;
-  font-style: normal; 
+  font-style: normal;
   font-size: var(--font-size-9);
   font-weight: var(--fw-700);
   line-height: var(--line-height-normal);
@@ -515,16 +513,18 @@ button[class="btn-refresh"] {
   background-color: var(--cyan);
   text-align: center;
   gap: 0.5rem;
-  cursor: pointer; 
+  cursor: pointer;
   color: var(--dark-brown);
   margin-inline: auto;
   padding-block: clamp(0.38rem, 0.346rem + 0.171vw, 0.5rem);
   padding-inline: 2.34rem;
   border-radius: var(--radius-9);
-  font-size: var(--font-size-3); 
-  font-style: normal; 
-  font-weight: var(--fw-400); 
-  transition: background-color 0.3s ease-in, transform 0.4s ease-out;
+  font-size: var(--font-size-3);
+  font-style: normal;
+  font-weight: var(--fw-400);
+  transition:
+    background-color 0.3s ease-in,
+    transform 0.4s ease-out;
 }
 
 @media (any-hover: hover) {
@@ -535,8 +535,8 @@ button[class="btn-refresh"] {
   button::before {
     content: "";
     position: absolute;
-    bottom: 0; 
-    left: 39px; 
+    bottom: 0;
+    left: 39px;
     padding-block: 3px;
     width: calc(100% - 4.68rem);
     background-color: var(--cyan);
@@ -546,7 +546,7 @@ button[class="btn-refresh"] {
   }
 
   button:is(:hover) {
-    background-color: transparent; 
+    background-color: transparent;
     transform: translateY(-5px);
   }
 

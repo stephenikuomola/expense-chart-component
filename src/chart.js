@@ -21,14 +21,21 @@ const daysOfWeek = /**@type {NodeListOf<HTMLTableElement>}*/ (
 const tableRows = /**@type {NodeListOf<HTMLTableElement>} */ (
   document.querySelectorAll('tbody tr')
 );
-const delay = /**@type{number} */ 1000;
-const sunday = 0;
-const monday = 1;
-const tuesday = 2;
-const wednesday = 3;
-const thursday = 4;
-const friday = 5;
-const saturday = 6;
+const DELAY = /**@type{number} */ 1000;
+const SUNDAY = 0;
+const MONDAY = 1;
+const TUESDAY = 2;
+const WEDNESDAY = 3;
+const THURSDAY = 4;
+const FRIDAY = 5;
+const SATURDAY = 6;
+const FIRST_NODE_INDEX = SUNDAY;
+const SECOND_NODE_INDEX = MONDAY;
+const THIRD_NODE_INDEX = TUESDAY;
+const FOURTH_NODE_INDEX = WEDNESDAY;
+const FIFTH_NODE_INDEX = THURSDAY;
+const SIXTH_NODE_INDEX = FRIDAY;
+const SEVENTH_NODE_INDEX = SATURDAY;
 
 /**
  * A function that set the background-color of the table rows for the days of the week.
@@ -36,7 +43,8 @@ const saturday = 6;
  * @returns {void}
  */
 function setBackgroundColor(index) {
-
+  tableRows[index].style.setProperty('--cyan', 'hsl(186, 34%, 60%);');
+  tableRows[index].style.backgroundColor = 'var(--cyan)';
 }
 
 /**
@@ -54,19 +62,18 @@ function animateBarChart() {
 function renderDaysAndAmounts() {
   try {
     if (!Array.isArray(data)) {
-      throw new Error();
+      throw new Error('Oops! You are lost');
     }
     const dataValues = data;
 
     dataValues.forEach(function (dataValue, index) {
-      console.log(dataValue, index);
       amountPerDay[index].textContent = `$${dataValue.amount}`;
       daysOfWeek[index].textContent = dataValue.day;
     });
     failure?.classList.add('hide');
     success?.classList.remove('hide');
     balance?.classList.remove('failure');
-    setTimeout(animateBarChart, delay);
+    setTimeout(animateBarChart, DELAY);
 
     // We need to know what the current date us nd compare with the days of the week from the chart, then we apply a different color for the corresponding individual bar chart.
     const currentDate = new Date();
@@ -74,41 +81,68 @@ function renderDaysAndAmounts() {
 
     // Using a switch case we want to evaluate the expression above and match the value of that expression to a series of case clauses.
 
-    switch(currentDay) {
-      case sunday: {
-        
+    switch (currentDay) {
+      case SUNDAY: {
+        setBackgroundColor(SEVENTH_NODE_INDEX);
         break;
       }
 
-      case monday: {
+      case MONDAY: {
+        setBackgroundColor(FIRST_NODE_INDEX);
         break;
       }
 
-      case tuesday: {
+      case TUESDAY: {
+        setBackgroundColor(SECOND_NODE_INDEX);
         break;
       }
 
-      case wednesday: {
+      case WEDNESDAY: {
+        setBackgroundColor(THIRD_NODE_INDEX);
         break;
       }
 
-      case thursday: {
+      case THURSDAY: {
+        setBackgroundColor(FOURTH_NODE_INDEX);
         break;
       }
 
-      case friday: {
-        setBackgroundColor(1);
+      case FRIDAY: {
+        setBackgroundColor(FIFTH_NODE_INDEX);
         break;
       }
 
-      case saturday: {
+      case SATURDAY: {
+        setBackgroundColor(SIXTH_NODE_INDEX);
         break;
+      }
+
+      default: {
+        tableRows.forEach(function (tableRow) {
+          tableRow.style.setProperty('--soft-red', 'hsl(10, 79%, 65%)');
+          tableRow.style.backgroundColor = 'var(--soft-red)';
+        });
       }
     }
-
-
   } catch (error) {
-
+    const [strongText, normalText] = error.message.split('!');
+    const failureMessage = /**@type {HTMLParagraphElement} */ (
+      document.querySelector('.failure__message')
+    );
+    const strongFailureMessage = /**@type {HTMLElement} */ (
+      document.querySelector('.failure__message strong')
+    );
+    strongFailureMessage.textContent = `${strongText}!`;
+    if (!failureMessage.innerHTML.includes(normalText.trim())) {
+      const normal = document.createTextNode(normalText.trim());
+      failureMessage.appendChild(normal);
+    }
+    failure?.classList.remove('hide');
+    success?.classList.add('hide');
+    balance?.classList.add('failure');
+    btnReload.addEventListener('click', function () {
+      renderDaysAndAmounts();
+    });
   }
 }
 

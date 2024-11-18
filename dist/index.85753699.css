@@ -429,7 +429,7 @@ picture img {
   margin-inline: auto;
 }
 
-.failure__message, .failure__response-status {
+.failure__message {
   text-align: center;
   font-style: normal;
   font-size: var(--font-size-9);

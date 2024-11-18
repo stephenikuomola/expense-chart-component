@@ -595,19 +595,29 @@ const balance = /**@type {HTMLParagraphElement}*/ document.querySelector('.expen
 const amountPerDay = /**@type {NodeListOf<HTMLTableElement>} */ document.querySelectorAll('tr td');
 const daysOfWeek = /**@type {NodeListOf<HTMLTableElement>}*/ document.querySelectorAll('tr span[aria-hidden="true"]');
 const tableRows = /**@type {NodeListOf<HTMLTableElement>} */ document.querySelectorAll('tbody tr');
-const delay = /**@type{number} */ 1000;
-const sunday = 0;
-const monday = 1;
-const tuesday = 2;
-const wednesday = 3;
-const thursday = 4;
-const friday = 5;
-const saturday = 6;
+const DELAY = /**@type{number} */ 1000;
+const SUNDAY = 0;
+const MONDAY = 1;
+const TUESDAY = 2;
+const WEDNESDAY = 3;
+const THURSDAY = 4;
+const FRIDAY = 5;
+const SATURDAY = 6;
+const FIRST_NODE_INDEX = SUNDAY;
+const SECOND_NODE_INDEX = MONDAY;
+const THIRD_NODE_INDEX = TUESDAY;
+const FOURTH_NODE_INDEX = WEDNESDAY;
+const FIFTH_NODE_INDEX = THURSDAY;
+const SIXTH_NODE_INDEX = FRIDAY;
+const SEVENTH_NODE_INDEX = SATURDAY;
 /**
  * A function that set the background-color of the table rows for the days of the week.
  * @param {number} index - The index of the table rows
  * @returns {void}
- */ function setBackgroundColor(index) {}
+ */ function setBackgroundColor(index) {
+    tableRows[index].style.setProperty('--cyan', 'hsl(186, 34%, 60%);');
+    tableRows[index].style.backgroundColor = 'var(--cyan)';
+}
 /**
  * This function will increase the height of each bar chart
  */ function animateBarChart() {
@@ -620,46 +630,68 @@ const saturday = 6;
  * This function will render the days and amounts information on the UI
  */ function renderDaysAndAmounts() {
     try {
-        if (!Array.isArray((0, _dataJsonDefault.default))) throw new Error();
+        if (!Array.isArray((0, _dataJsonDefault.default))) throw new Error('Oops! You are lost');
         const dataValues = (0, _dataJsonDefault.default);
         dataValues.forEach(function(dataValue, index) {
-            console.log(dataValue, index);
             amountPerDay[index].textContent = `$${dataValue.amount}`;
             daysOfWeek[index].textContent = dataValue.day;
         });
         failure?.classList.add('hide');
         success?.classList.remove('hide');
         balance?.classList.remove('failure');
-        setTimeout(animateBarChart, delay);
+        setTimeout(animateBarChart, DELAY);
         // We need to know what the current date us nd compare with the days of the week from the chart, then we apply a different color for the corresponding individual bar chart.
         const currentDate = new Date();
         const currentDay = currentDate.getDay();
         // Using a switch case we want to evaluate the expression above and match the value of that expression to a series of case clauses.
         switch(currentDay){
-            case sunday:
+            case SUNDAY:
+                setBackgroundColor(SEVENTH_NODE_INDEX);
                 break;
-            case monday:
+            case MONDAY:
+                setBackgroundColor(FIRST_NODE_INDEX);
                 break;
-            case tuesday:
+            case TUESDAY:
+                setBackgroundColor(SECOND_NODE_INDEX);
                 break;
-            case wednesday:
+            case WEDNESDAY:
+                setBackgroundColor(THIRD_NODE_INDEX);
                 break;
-            case thursday:
+            case THURSDAY:
+                setBackgroundColor(FOURTH_NODE_INDEX);
                 break;
-            case friday:
-                setBackgroundColor(1);
+            case FRIDAY:
+                setBackgroundColor(FIFTH_NODE_INDEX);
                 break;
-            case saturday:
+            case SATURDAY:
+                setBackgroundColor(SIXTH_NODE_INDEX);
                 break;
+            default:
+                tableRows.forEach(function(tableRow) {
+                    tableRow.style.setProperty('--soft-red', 'hsl(10, 79%, 65%)');
+                    tableRow.style.backgroundColor = 'var(--soft-red)';
+                });
         }
-    } catch (error) {}
+    } catch (error) {
+        const [strongText, normalText] = error.message.split('!');
+        const failureMessage = /**@type {HTMLParagraphElement} */ document.querySelector('.failure__message');
+        const strongFailureMessage = /**@type {HTMLElement} */ document.querySelector('.failure__message strong');
+        strongFailureMessage.textContent = `${strongText}!`;
+        if (!failureMessage.innerHTML.includes(normalText.trim())) {
+            const normal = document.createTextNode(normalText.trim());
+            failureMessage.appendChild(normal);
+        }
+        failure?.classList.remove('hide');
+        success?.classList.add('hide');
+        balance?.classList.add('failure');
+        btnReload.addEventListener('click', function() {
+            renderDaysAndAmounts();
+        });
+    }
 }
 renderDaysAndAmounts();
 
-},{"../data.json":"cn6Iz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cn6Iz":[function(require,module,exports,__globalThis) {
-module.exports = JSON.parse("[{\"day\":\"mon\",\"amount\":17.45},{\"day\":\"tue\",\"amount\":34.91},{\"day\":\"wed\",\"amount\":52.36},{\"day\":\"thu\",\"amount\":31.07},{\"day\":\"fri\",\"amount\":23.39},{\"day\":\"sat\",\"amount\":43.28},{\"day\":\"sun\",\"amount\":25.48}]");
-
-},{}],"gkKU3":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../data.json":"cn6Iz"}],"gkKU3":[function(require,module,exports,__globalThis) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -688,6 +720,9 @@ exports.export = function(dest, destName, get) {
         get: get
     });
 };
+
+},{}],"cn6Iz":[function(require,module,exports,__globalThis) {
+module.exports = JSON.parse("[{\"day\":\"mon\",\"amount\":17.45},{\"day\":\"tue\",\"amount\":34.91},{\"day\":\"wed\",\"amount\":52.36},{\"day\":\"thu\",\"amount\":31.07},{\"day\":\"fri\",\"amount\":23.39},{\"day\":\"sat\",\"amount\":43.28},{\"day\":\"sun\",\"amount\":25.48}]");
 
 },{}]},["gDFPF","dF3Ha"], "dF3Ha", "parcelRequire94c2")
 
