@@ -90,7 +90,7 @@ function animateBarChart() {
  */
 function renderDaysAndAmounts() {
   try {
-    if (!Array.isArray(data)) {
+    if (Array.isArray(data)) {
       throw new Error('Oops! You are lost');
     }
     const dataValues = data;

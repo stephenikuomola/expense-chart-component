@@ -651,7 +651,7 @@ const SEVENTH_NODE_INDEX = SATURDAY;
  * This function will render the days and amounts information on the UI
  */ function renderDaysAndAmounts() {
     try {
-        if (!Array.isArray((0, _dataJsonDefault.default))) throw new Error('Oops! You are lost');
+        if (Array.isArray((0, _dataJsonDefault.default))) throw new Error('Oops! You are lost');
         const dataValues = (0, _dataJsonDefault.default);
         dataValues.forEach(function(dataValue, index) {
             amountPerDay[index].textContent = `$${dataValue.amount}`;
