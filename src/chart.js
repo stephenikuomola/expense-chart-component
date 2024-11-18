@@ -18,7 +18,7 @@ const amountPerDay = /**@type {NodeListOf<HTMLTableElement>} */ (
 const daysOfWeek = /**@type {NodeListOf<HTMLTableElement>}*/ (
   document.querySelectorAll('tr span[aria-hidden="true"]')
 );
-const tableRows = /**@type {NodeListOf<HTMLTableElement>} */ (
+const tableRows = /**@type {NodeListOf<HTMLTableRowElement>} */ (
   document.querySelectorAll('tbody tr')
 );
 const DELAY = /**@type{number} */ 1000;
@@ -45,20 +45,35 @@ const SEVENTH_NODE_INDEX = SATURDAY;
 function setBackgroundColor(index) {
   tableRows[index].addEventListener('mouseenter', function (evtObj) {
     if (evtObj.target instanceof HTMLTableRowElement) {
-      evtObj.target?.style.setProperty(
-        '--cyan-hover',
+      const tableRow = evtObj.target;
+      createBackgroundColor(
+        tableRow,
+        '--cyan-hovered',
         'hsla(186, 49%, 80%, 1)'
       );
-      evtObj.target.style.backgroundColor = 'var(--cyan-hover)';
     }
   });
 
   tableRows[index].addEventListener('mouseleave', function (evtObj) {
     if (evtObj.target instanceof HTMLTableRowElement) {
-      evtObj.target?.style.setProperty('--cyan', 'hsl(186, 34%, 60%)');
-      evtObj.target.style.backgroundColor = 'var(--cyan)';
+      const tableRow = evtObj.target;
+      createBackgroundColor(tableRow, '--cyan', 'hsl(186, 34%, 60%)');
     }
   });
+
+  createBackgroundColor(tableRows[index], '--cyan', 'hsl(186, 34%, 60%)');
+}
+
+/**
+ * This function creates the background color for the chart for the corresponding day
+ * @param {HTMLTableRowElement} bar -- The event object
+ * @param {string} cssVariable -- The CSS variable property
+ * @param {string} colorCode -- The color code
+ * @returns {void}
+ */
+function createBackgroundColor(bar, cssVariable, colorCode) {
+  bar?.style.setProperty(cssVariable, colorCode);
+  bar.style.backgroundColor = `var(${cssVariable})`;
 }
 
 /**
